@@ -2,16 +2,19 @@
 {
     public interface IGraph
     {
+        // Returns true if there is an edge between start index and end index
         bool IsConnected(string startVertex, string endVertex);
 
-        List<string> Neighbours(string startVertex);
+        // Returns the neighbours of the vertex given
+        List<string> Neighbours(string vertex);
 
+        // Displays the graph in an appropriate way
         string Display();
 
+        // Adds a vertex to the graph
         void AddVertex(string vertex);
 
-        void AddEdges(List<Edge> edges);
-
-        void AddEdge(Edge edge);
+        // Adds an edge to the graph
+        void AddEdge(string startIndex, string endIndex, double weight);
     }
 }
