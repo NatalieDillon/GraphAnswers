@@ -1,9 +1,9 @@
 ## Graph exercises
 
-To start with we are going to look at how to represent a graph using an adjacency matrix or an adjacency list</br>
+Represent a graph using both an adjacency matrix or an adjacency list</br>
 It has been assumed for the moment that the vertices will be a string</br>
 
-1. Implement IGraph using an adjacency matrix. You will need a 2-Dimensional array to hold the edges. You could use a list of strings for the vertices</br>
+1. Implement IGraph using an adjacency matrix. You will need a 2-Dimensional array to hold the edges. Use a list of strings for the vertices</br>
 2. Implement IGraph using an adjacency list. You might wish to use a dictionary of dictionaries for this.</br>
 3. Test your code, there is some example test code in Program.cs. You may wish to add to this or to create your own unit tests</br>
 
