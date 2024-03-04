@@ -11,10 +11,7 @@
         // Displays the graph in an appropriate way
         string Display();
 
-        // Adds a vertex to the graph
-        void AddVertex(string vertex);
-
-        // Adds an edge to the graph
+        // Adds an edge to the graph       
         void AddEdge(string startIndex, string endIndex, double weight);
     }
 }
