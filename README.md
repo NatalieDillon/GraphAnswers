@@ -1,6 +1,6 @@
 ## Graph exercises
 
-Represent a graph using both an adjacency matrix or an adjacency list</br>
+Represent a graph using both an adjacency matrix and an adjacency list</br>
 It has been assumed for the moment that the vertices will be a string</br>
 
 1. Implement IGraph using an adjacency matrix. You will need a 2-Dimensional array to hold the edges. Use a list of strings for the vertices</br>
