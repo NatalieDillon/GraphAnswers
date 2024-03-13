@@ -13,38 +13,19 @@ namespace GraphExercises.Classes
 
         public void AddEdge(string startVertex, string endVertex, double weight)
         {
-            Dictionary<string, double> neighbours;
-            // Make sure start vertex is added to dictionary
-            if (_graph.ContainsKey(startVertex))
+            if (!_graph.ContainsKey(startVertex))
             {
-                neighbours = _graph[startVertex];
+                _graph.Add(startVertex, new());
             }
-            else
+            var adjList = _graph[startVertex];
+            if (!adjList.ContainsKey(endVertex))
             {
-                neighbours = new Dictionary<string, double>();
-                _graph.Add(startVertex, neighbours);
+                adjList.Add(endVertex, weight);
+
             }
-            // Make sure end vertex is added to adjacency list
-            if (neighbours.ContainsKey(endVertex))
-            {
-                neighbours[endVertex] = weight;
-            }
-            else
-            {
-                neighbours.Add(endVertex, weight);
-            }
-            // Make sure end vertex is added to the dictionary
             if (!_graph.ContainsKey(endVertex))
             {
-                _graph.Add(endVertex, new Dictionary<string, double>());
-            }
-        }
-
-        public void AddVertex(string vertex)
-        {
-            if (!_graph.ContainsKey(vertex))
-            {
-                _graph.Add(vertex, new Dictionary<string, double>());
+                _graph.Add(endVertex, new());
             }
         }
 
