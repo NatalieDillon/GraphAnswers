@@ -4,7 +4,7 @@ namespace GraphExercises.Classes
 {
     public class MatrixGraph : IGraph
     {
-        private readonly List<string> _vertices = new();
+        private readonly List<string> _vertices = [];
         private readonly double[,] _edges;
         private readonly int _capacity = 100;
               
@@ -70,7 +70,7 @@ namespace GraphExercises.Classes
             return sb.ToString();
         }
 
-        public bool IsConnected(string startVertex, string endVertex)
+        public bool HasEdge(string startVertex, string endVertex)
         {
             int startIndex = _vertices.IndexOf(startVertex);
             int endIndex = _vertices.IndexOf(endVertex);
@@ -83,7 +83,7 @@ namespace GraphExercises.Classes
 
         public List<string> Neighbours(string vertex)
         {
-            List<string> nodes = new();
+            List<string> nodes = [];
             int startIndex = _vertices.IndexOf(vertex);
             if (startIndex != -1)
             {

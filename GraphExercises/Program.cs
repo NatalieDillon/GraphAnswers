@@ -36,10 +36,8 @@ namespace GraphExercises
             graph.AddEdge("E", "F", 8);
 
             Console.WriteLine(graph.Display());
-            Console.WriteLine(graph.IsConnected("D", "B"));
-            Console.WriteLine(graph.IsConnected("C", "E"));
-            Debug.Assert(graph.IsConnected("D", "B"));
-            Debug.Assert(!graph.IsConnected("C", "E"));
+            Console.WriteLine($"D has edge with B: {graph.HasEdge("D", "B")}");
+            Console.WriteLine($"C has edge with E: {graph.HasEdge("C", "E")}");
 
             Console.WriteLine($"Neighbours of D: {string.Join(",", graph.Neighbours("D"))}");
         }

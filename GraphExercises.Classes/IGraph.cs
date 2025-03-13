@@ -3,7 +3,7 @@
     public interface IGraph
     {
         // Returns true if there is an edge between start index and end index
-        bool IsConnected(string startVertex, string endVertex);
+        bool HasEdge(string startVertex, string endVertex);
 
         // Returns the neighbours of the vertex given
         List<string> Neighbours(string vertex);

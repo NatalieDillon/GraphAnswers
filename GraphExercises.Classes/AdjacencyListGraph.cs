@@ -9,24 +9,13 @@ namespace GraphExercises.Classes
     public class AdjacencyListGraph : IGraph
     {
         // Uses a dictionary of dictionaries
-        private readonly Dictionary<string, Dictionary<string, double>> _graph = new();
+        private readonly Dictionary<string, Dictionary<string, double>> _graph = [];
 
         public void AddEdge(string startVertex, string endVertex, double weight)
         {
-            if (!_graph.ContainsKey(startVertex))
-            {
-                _graph.Add(startVertex, new());
-            }
-            var adjList = _graph[startVertex];
-            if (!adjList.ContainsKey(endVertex))
-            {
-                adjList.Add(endVertex, weight);
-
-            }
-            if (!_graph.ContainsKey(endVertex))
-            {
-                _graph.Add(endVertex, new());
-            }
+            _graph.TryAdd(startVertex, []); // Add the start vertex if it isn't there
+			_graph.TryAdd(endVertex, []); // Add the end vertex if it isn't there
+            _graph[startVertex].TryAdd(endVertex, weight); // Add the edge to the adjacency list of the start vertex
         }
 
         public string Display()
@@ -48,22 +37,22 @@ namespace GraphExercises.Classes
             return sb.ToString();
         }
 
-        public bool IsConnected(string startVertex, string endVertex)
+        public bool HasEdge(string startVertex, string endVertex)
         {
-            if (_graph.ContainsKey(startVertex))
+            bool hasEdge = false;
+            if (_graph.TryGetValue(startVertex, out var adjacencyList))
             {
-                var values = _graph[startVertex];
-                return values.Keys.FirstOrDefault(k => k.Equals(endVertex)) != null;
+                hasEdge = adjacencyList.ContainsKey(endVertex);
             }
-            return false;
+            return hasEdge;
         }
 
         public List<string> Neighbours(string vertex)
         {
-            List<string> neighbours = new();
-            if (_graph.ContainsKey(vertex))
+            List<string> neighbours = [];
+            if (_graph.TryGetValue(vertex, out var adjacencyList))
             {
-                neighbours.AddRange(_graph[vertex].Keys);
+                neighbours.AddRange(adjacencyList.Keys);
             }
             return neighbours;
         }
